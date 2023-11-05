@@ -18,6 +18,6 @@
 
 </div>
 
-❱❱ Esta página foi criada com base no template https://github.com/thepranaygupta/thepranaygupta.github.io\
-❱❱ A licença MIT foi mantida do projeto original para dar os devidos créditos ao autor do projeto\
+❱❱ Esta página foi criada com base no template https://github.com/thepranaygupta/thepranaygupta.github.io<br>
+❱❱ A licença MIT foi mantida do projeto original para dar os devidos créditos ao autor do projeto<br>
 ❱❱ Fiquem a vontade para realizar um fork deste projeto e modifica-lo de acordo com as suas necessidades
