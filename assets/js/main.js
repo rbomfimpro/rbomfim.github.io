@@ -178,36 +178,52 @@ window.addEventListener("scroll", scrollUpfunc);
 // DARK/LIGHT THEME
 const themeButton = document.getElementById("theme-button");
 const darkTheme = "dark-theme";
+const lightTheme = "light-theme";
 const iconTheme = "uil-sun";
 
 // Previously selected topic (if user selected)
-const selectedTheme = localStorage.getItem("selected-theme");
-const selectedIcon = localStorage.getItem("selected-icon");
+let selectedTheme = localStorage.getItem("selected-theme");
+let selectedIcon = localStorage.getItem("selected-icon");
 
-// obtain the current theme
-const getCurrentTheme = () =>
-  document.body.classList.contains(darkTheme) ? "dark" : "light";
-const getCurrentIcon = () =>
-  themeButton.classList.contains(iconTheme) ? "uil-moon" : "uil-sun";
-
-if (selectedTheme) {
-  document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
-    darkTheme
-  );
-  themeButton.classList[selectedIcon === "uil-moon" ? "add" : "remove"](
-    iconTheme
-  );
+// If the user hasn't previously selected a theme, set the dark theme as default
+if (!selectedTheme) {
+  selectedTheme = "dark";
+  selectedIcon = "uil-moon";
 }
+
+// Set the theme and icon based on the user's selection
+document.body.classList[selectedTheme === "dark" ? "add" : "remove"](darkTheme);
+document.body.classList[selectedTheme === "light" ? "add" : "remove"](lightTheme);
+themeButton.classList[selectedIcon === "uil-moon" ? "add" : "remove"](iconTheme);
 
 // Activate/Deactivate the theme manually with the button
 themeButton.addEventListener("click", () => {
-  // Add or remove the dark icon/theme
+  // Toggle between dark and light theme
   document.body.classList.toggle(darkTheme);
+  document.body.classList.toggle(lightTheme);
   themeButton.classList.toggle(iconTheme);
-  // We save the theme and the current icon that the user chose
+  // Update the selected theme and icon in local storage
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
+
+// Function to get the current theme
+const getCurrentTheme = () => {
+  if (document.body.classList.contains(darkTheme)) {
+    return "dark";
+  } else {
+    return "light";
+  }
+};
+
+// Function to get the current icon
+const getCurrentIcon = () => {
+  if (themeButton.classList.contains(iconTheme)) {
+    return "uil-moon";
+  } else {
+    return "uil-sun";
+  }
+};
 
 // Typing Animation using Typed JS
 var typed = new Typed(".type", {
