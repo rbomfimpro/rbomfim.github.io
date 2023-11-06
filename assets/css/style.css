@@ -627,14 +627,17 @@ button {
 
 /* CONTACT ME  */
 .contact_container {
-  display: flex;
   row-gap: 3rem;
+  display: flex; /* adicionado pelo chatgpt */
+  flex-wrap: wrap; /* adicionado pelo chatgpt */
+  justify-content: space-between; /* adicionado pelo chatgpt */
 }
 
 .contact_info {
   display: flex;
-  margin-right: 10px;
-  align-items: center;
+  margin-bottom: var(--mb-2);
+  align-items: flex-start;
+  flex: 1; /* adicionado pelo chatgpt */
 }
 
 .contact_icon {
@@ -646,8 +649,6 @@ button {
 .contact_title {
   font-size: var(--h3-font-size);
   font-weight: var(--font-medium);
-  text-decoration: none;
-  color: white;
 }
 
 .contact_subtitle {
